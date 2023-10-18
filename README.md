@@ -1,6 +1,4 @@
 # Casos de Estudio: MongoDB
-Modelo Entidad Relacion
-![image](https://github.com/ivanzabala/frameworks-mongodb/assets/130702766/a7660934-6b9e-43a7-8742-9f3cf459247b)
 
 # Reglas de negocio
 Se desea diseñar un modelo de base de datos que permita el almacenamiento de los datos concernientes a la vuelta ciclística a Colombia, teniendo en cuenta los siguientes enunciados:
@@ -14,4 +12,7 @@ Se debe almacenar los datos de los corredores que participan, estos corredores p
 Es de intereses además almacenar el podio de cada una de las etapas, entendiéndose por el podio los ciclistas que ocuparon el primer segundo y tercer lugar en cada etapa. Además, interesa guardar los tiempos de los ocupantes del podio para cada etapa.
 
 Adicionalmente se desea almacenar la auditoría de cada una de las entidades de negocio. 
+
+# Modelo Entidad Relacion
+![image](https://github.com/ivanzabala/frameworks-mongodb/assets/130702766/a7660934-6b9e-43a7-8742-9f3cf459247b)
 
