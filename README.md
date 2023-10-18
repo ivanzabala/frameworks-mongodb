@@ -1,4 +1,4 @@
-# Casos de Estudio: MongoDB
+# Caso de Estudio: MongoDB
 
 # Reglas de negocio
 Se desea diseñar un modelo de base de datos que permita el almacenamiento de los datos concernientes a la vuelta ciclística a Colombia, teniendo en cuenta los siguientes enunciados:
