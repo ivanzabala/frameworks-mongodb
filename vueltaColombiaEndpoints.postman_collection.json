@@ -1,0 +1,581 @@
+{
+	"info": {
+		"_postman_id": "f57dcad7-63dd-4f70-ab2b-7cbc1ffca933",
+		"name": "vueltaColombiaEndpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30332620"
+	},
+	"item": [
+		{
+			"name": "Sponsor",
+			"item": [
+				{
+					"name": "createSponsor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sponsorId\" : 2143,\r\n    \"sponsorName\" : \"Patrocinador 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sponsor/createSponsor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"createSponsor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findSponsorById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findAllSponsors",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updateNameSponsor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sponsor/updateSponsor/2144?name=Patrocinador nuevo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"updateSponsor",
+								"2144"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Patrocinador nuevo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSponsor",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"sponsor\"."
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "createTeam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sponsorId\" : 2143,\r\n    \"sponsorName\" : \"Patrocinador 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sponsor/createSponsor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"createSponsor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findTeamById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findAllTeams",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updateNameTeam",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sponsor/updateSponsor/2144?name=Patrocinador nuevo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"updateSponsor",
+								"2144"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Patrocinador nuevo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTeam",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"team\"."
+		},
+		{
+			"name": "Runner",
+			"item": [
+				{
+					"name": "createRunner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"runnerName\" : \"Corredor 2\",\r\n    \"countryBirth\" : \"Pwrú\",\r\n    \"dateBirth\" : \"1982-05-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/runner/createRunner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"createRunner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findRunnerById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findRunnerAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/runner/allRunners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"allRunners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRunnerName",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sponsor/updateSponsor/2144?name=Patrocinador nuevo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"updateSponsor",
+								"2144"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Patrocinador nuevo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRunner",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"runner\"."
+		},
+		{
+			"name": "Edition",
+			"item": [
+				{
+					"name": "createEdition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"runnerName\" : \"Corredor 2\",\r\n    \"countryBirth\" : \"Pwrú\",\r\n    \"dateBirth\" : \"1982-05-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/runner/createRunner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"createRunner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findEditionById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findAllEditions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/runner/allRunners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"allRunners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEditionAnio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sponsor/updateSponsor/2144?name=Patrocinador nuevo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"updateSponsor",
+								"2144"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Patrocinador nuevo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEdition",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"edition\"."
+		},
+		{
+			"name": "TeamRunner",
+			"item": [
+				{
+					"name": "createTeamRunner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"runnerName\" : \"Corredor 2\",\r\n    \"countryBirth\" : \"Pwrú\",\r\n    \"dateBirth\" : \"1982-05-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/runner/createRunner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"createRunner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "findAllTeamRunner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/runner/allRunners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"allRunners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRunnerId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/sponsor/updateSponsor/2144?name=Patrocinador nuevo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sponsor",
+								"updateSponsor",
+								"2144"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Patrocinador nuevo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEdition",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"teamRunner\"."
+		},
+		{
+			"name": "TeamSponsor",
+			"item": [
+				{
+					"name": "createTeamSponsor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"runnerName\" : \"Corredor 2\",\r\n    \"countryBirth\" : \"Pwrú\",\r\n    \"dateBirth\" : \"1982-05-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/runner/createRunner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"createRunner"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"teamSponsor\"."
+		},
+		{
+			"name": "Podium",
+			"item": [
+				{
+					"name": "createPodium",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"runnerName\" : \"Corredor 2\",\r\n    \"countryBirth\" : \"Pwrú\",\r\n    \"dateBirth\" : \"1982-05-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/runner/createRunner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"createRunner"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity podium\"."
+		},
+		{
+			"name": "Stage",
+			"item": [
+				{
+					"name": "createStage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"runnerName\" : \"Corredor 2\",\r\n    \"countryBirth\" : \"Pwrú\",\r\n    \"dateBirth\" : \"1982-05-06\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/runner/createRunner",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"runner",
+								"createRunner"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This is a endpoints collection of entity \"stage\"."
+		}
+	]
+}
