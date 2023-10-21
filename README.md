@@ -14,5 +14,6 @@ Es de intereses además almacenar el podio de cada una de las etapas, entendién
 Adicionalmente se desea almacenar la auditoría de cada una de las entidades de negocio. 
 
 # Modelo Entidad Relacion
-![image](https://github.com/ivanzabala/frameworks-mongodb/assets/130702766/a7660934-6b9e-43a7-8742-9f3cf459247b)
+![image](https://github.com/ivanzabala/frameworks-mongodb/assets/130702766/2bcb0fe1-4a6a-405c-9339-0b1781243ca4)
+
 
