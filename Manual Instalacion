@@ -1,0 +1,71 @@
+Creando la BD de Mongo:
+Para crear la BD que albergará la tabla de auditoría, se usa el servicio de Mongo DB Atlas (https://www.mongodb.com/es/atlas/database). Allí, se crea una cuenta:
+
+Al crear la cuenta, se debe dirigir a la pantalla principal y se escoge la opción de New Project ubicada en la parte superior derecha.
+
+Se debe seleccionar un nombre para el proyecto a crear y dar en siguiente para, de ser necesario, agregar más colaboradores para el mismo. Por último, se selecciona create Project.
+
+
+Al ser un servicio gratuito, se tendrán algunas limitaciones en cuanto a funcionalidades, sin embargo, para efectos del ejercicio, los servicios gratuitos serán suficientes. Al crear el proyecto, debe aparecer una página como la que se ve a continuación:
+
+
+Para continuar con la creación de la BD, primero debemos crear el cluster donde se almacenará. Se debe seleccionar la opción de Database Access disponible en el menú izquierdo, debe aparecernos una página donde nos indica que no tenemos usuarios y nos da la opción de agregar uno nuevo.
+
+Debemos crear un nuevo database user para la administración de la base de datos, así que seleccionamos esta opción y lo creamos con usuario y password para mayor practicidad. Tendremos más opciones que, para efectos de practicidad del ejercicio, no son necesarias.
+
+Se diligencian los campos requeridos y se le asignan privilegios al usuario a crear. Como necesitamos que nuestro usuario pueda tener rol de administrador, seleccionamos Atlas admin.
+
+
+También se tiene la opción de personalizar los roles que se pueden asignar o especificar que es un usuario temporal de ser necesario. Al adecuar el usuario a nuestras necesidades, procedemos a dar click en add user.
+
+Al finalizar, debemos observar la siguiente interfaz:
+
+Con el usuario creado, procedemos a crear la base de datos junto a la colección donde almacenaremos nuestra auditoría. En la siguiente vista, vamos a Browse Collections.
+
+
+Estando allí, nos aparecerá otra vista donde denotaremos que no contamos con bases de datos ni con colecciones. Para crear la BD junto a la colección de auditoría, seleccionamos la opción de add my own data. Allí, nos aparecerá la opción de asignarle un nombre a nuestra base de datos y a nuestra colección. Confirmamos cambios dando click en create.
+
+De esta forma, hemos creado la base de datos en MongoDb, al igual que la colección.
+
+Conectando MongoDB con el aplicativo en java:
+Con el aplicativo Java creado junto a las entidades y operaciones CRUD, se plantea que, al ejecutar alguna de estas operaciones, esta se almacene en la base de datos de Mongo. Siendo así, necesitamos añadir a nuestras dependencias la correspondiente a MongoDb, esta es:
+implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+Lo siguiente a modificar es nuestro archivo application.propperties. Allí, ponemos nuestra uri de conexión con el cluster y la base de datos creada. Para obtener esta uri, nos dirigimos a Atlas y allí, en la opción de Overview, seleccionamos connect:
+
+En connect, seleccionamos la opción de drivers por cuanto necesitamos la uri de conexión.
+
+Allí, seleccionamos el driver que necesitamos y la versión. Esto nos generará una cadena de conexión, la cual, debemos añadir en nuestro proyecto, específicamente en el archivo application.propperties.
+
+
+Y así, realizaríamos la conexión hacia MongoDB desde nuestro aplicativo java.
+Como la orientación del problema es guardar los datos de auditoría en una colección, así como se hizo para la creación de las tablas, también debemos crear una entidad para las colecciones que tendremos y un repositorio, sin embargo, estos tendrán unos leves cambios.
+Para la entidad, la cual llamaremos AuditEntry, crearemos una clase AuditEntry que contendrá los campos que queremos se guarden en nuestra colección, para el caso, serán los siguientes:
+
+Como podemos observar, ya no usaremos la anotación @Table por cuanto no estamos manejando una tabla, ahora usaremos @Document donde en los atributos pondremos collection y lo inicializaremos con el nombre de nuestra colección creada, para el caso, audit_entry. También tendremos:
+Id: de tipo String, el cual si va denotado con la anotación @Id y autogenerad por mongo.
+Action: operación CRUD ejecutada.
+Table: tabla sobre la cual se ejecutó la acción.
+Data: datos que se operaron en esa tabla.
+Por el lado del repositorio, en este ya no se hará uso de JPA sino de MongoRepository, siendo la estructura la misma que en el repositorio de JPA, sin embargo, no se usará la anotación @Repository por cuanto MongoRepository ya define esta interface como un repository.
+
+Con estos cambios, ya podremos implementar nuestra lógica en los service de nuestras entidades para poder enviar datos a la colección en MongoDB. A continuación, un ejemplo en cuanto al ingreso de datos en la tabla Patrocinadores.
+Tenemos nuestra función saveSponsor con parámetro de entrada un objeto sponsor de tipo Sponsor en nuestra clase SponsorService. En primer lugar, se debe inyectar mongoTemplate. Para crear el patrocinador, simplemente bastaría con llamar al repository.save(), sin embargo, cambiamos un poco la lógica para que, al ejecutar este método en la clase controller, inserte datos en la colección.
+
+Ejecutamos nuestro aplicativo e ingresamos datos por postman:
+
+Y observamos la inserción tanto en MySQL como en MongoDB:
+
+
+Problemas al conectar Mongo:
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoDatabaseFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDatabaseFactoryConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoDatabaseFactorySupport]: Factory method 'mongoDatabaseFactory' threw exception; nested exception is java.lang.IllegalArgumentException: Database name must not be empty!
+
+
+
+Solución: La url que nos proporciona Atlas para conectarnos dese nuestro aplicativo es bastante acertada, sin embargo, se debe modificar para agregar el nombre de nuestra base de datos dentro del cluster.
+Cadena original:
+
+Cadena adecuada a la base de datos:
+
+Así, la definición de la uri para la conexión a la base de datos, sería la siguiente:
+spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>
